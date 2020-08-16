@@ -28,20 +28,22 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        forwardForce = forwardForce + (rb.position.z - playerStartingZ);
-        playerStartingZ = rb.position.z;
-        var ff = forwardForce > 7000f ? 7000f : forwardForce;
-        rb.AddForce(0, 0, ff * Time.deltaTime);
+        if (FindObjectOfType<GameManager>().gameStarted) {
+            forwardForce = forwardForce + (rb.position.z - playerStartingZ);
+            playerStartingZ = rb.position.z;
+            var ff = forwardForce > 7000f ? 7000f : forwardForce;
+            rb.AddForce(0, 0, ff * Time.deltaTime);
 
-        if (moveRight) {
-            rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-        }
-        if (moveLeft) {
-            rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-        }
+            if (moveRight) {
+                rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            }
+            if (moveLeft) {
+                rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+            }
 
-        if (rb.position.y < -1f) {
-            FindObjectOfType<GameManager>().EndGame();
+            if (rb.position.y < -1f) {
+                FindObjectOfType<GameManager>().EndGame();
+            }
         }
     }
 }

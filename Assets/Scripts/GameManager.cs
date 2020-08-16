@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     private bool gameHasEnded = false;
+    public bool gameStarted = false;
     public Canvas scoreCanvas;
     public Canvas gameOverCanvas;
+    public Canvas startCanvas;
     public void EndGame() {
         if (!gameHasEnded) {
             gameHasEnded = true;
@@ -24,6 +26,12 @@ public class GameManager : MonoBehaviour
     private Text GetTextComponentByName(Text[] texts, string name) {
         IEnumerable<Text> query = from text in texts where text.name == name select text;
         return query.First();
+    }
+
+    public void StartGame() {
+        scoreCanvas.enabled = true;
+        gameStarted = true;
+        startCanvas.enabled = false;
     }
 
     public void Restart() {
