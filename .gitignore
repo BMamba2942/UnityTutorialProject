@@ -4,6 +4,7 @@
 
 # Unity files/dirs
 builds
+*.meta
 Packages
 ProjectSettings
 Temp
