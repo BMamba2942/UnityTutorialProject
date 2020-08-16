@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - image: game-nginx
+          imagePullPolicy: IfNotPresent
+          name: nginx
+          command: ["nginx", "-g", "daemon off;"]

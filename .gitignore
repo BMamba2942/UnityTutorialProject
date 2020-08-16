@@ -1,0 +1,13 @@
+# IDE
+.vscode
+*.sln
+
+# Unity files/dirs
+builds
+Packages
+ProjectSettings
+Temp
+Assembly-CSharp.csproj
+Library
+Logs
+obj
