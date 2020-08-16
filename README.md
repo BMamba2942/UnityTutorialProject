@@ -13,3 +13,5 @@ Then build the image with: `docker build -t game-nginx .`
 A manifest for deploying the above docker image is included in this repository under the manifests directory.
 
 Deploy the built WebGL version of the game with: `kubectl create -f manifests/`
+
+After deployment, the game should be reachable from `<IP>:8080`

@@ -22,6 +22,4 @@ public class ObstacleGenerator : MonoBehaviour
     void Start() {
         GenerateObjects(498, player.transform.position);
     }
-
-    // Update is called once per frame
 }
