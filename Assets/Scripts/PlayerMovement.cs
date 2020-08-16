@@ -4,8 +4,6 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public Rigidbody rb;
-    public Camera camera;
-
     public float forwardForce = 2000f;
     public float sidewaysForce = 500f;
 
