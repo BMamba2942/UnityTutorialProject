@@ -20,9 +20,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update() {
-        moveLeft = Input.GetKey("a");
-        moveRight = Input.GetKey("d");
-        // camera.transform.position = 
+        Vector3 pos = new Vector3(0, 0, 0);
+        float breakPoint = 0f;
+        if (Input.GetMouseButton(0)) {
+            pos = Input.mousePosition;
+            breakPoint = Screen.width / 2;
+        }
+        moveLeft = Input.GetKey("a") || pos.x < breakPoint;
+        moveRight = Input.GetKey("d") || pos.x > breakPoint;
     }
 
     // Update is called once per frame
