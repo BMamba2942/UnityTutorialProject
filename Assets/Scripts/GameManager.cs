@@ -37,4 +37,15 @@ public class GameManager : MonoBehaviour
     public void Restart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    void Update() {
+        if (Input.GetKey(KeyCode.Space)) {
+            if (gameHasEnded) {
+                Restart();
+            }
+            else if (!gameStarted) {
+                StartGame();
+            }
+        }
+    }
 }
