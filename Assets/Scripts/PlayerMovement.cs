@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
         playerStartingZ = rb.position.z;
     }
 
+    // Update is called once per frame
     void Update() {
         Vector3 pos = new Vector3(0, 0, 0);
         float breakPoint = 0f;
@@ -28,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
         moveRight = Input.GetKey("d") || pos.x > breakPoint;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (FindObjectOfType<GameManager>().gameStarted) {
@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (rb.position.y < -1f) {
                 FindObjectOfType<GameManager>().EndGame();
+                this.enabled = false;
             }
         }
     }

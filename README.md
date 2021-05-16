@@ -10,7 +10,7 @@ It's required for the builds/WebGL to be created in the root directory of this r
 Then build the image with: `docker build -t game-nginx .`
 
 # Deploying
-A manifest for deploying the above docker image is included in this repository under the manifests directory.
+A manifest for deploying the above docker image to Kubernetes is included in this repository under the manifests directory.
 
 Deploy the built WebGL version of the game with: `kubectl create -f manifests/`
 
